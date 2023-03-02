@@ -9,7 +9,8 @@ const Comments = db.define('Comment', {
         autoIncrement :true
     },
     content : {
-        type : DataTypes.STRING(255)
+        type : DataTypes.STRING(255),
+        allowNull : false
     }
 
 }, {

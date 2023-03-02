@@ -1,45 +1,56 @@
-const {Sequelize, DataTypes} = require('sequelize');
+
+const { Sequelize, DataTypes} = require('sequelize');
 const db = require('../db/db');
-const Vehicle_Buy = require('./Vehicule_Panier');
+const Vehicle = require('./Vehicle');
 
 
-const Buy = db .define('Buy', {
+const Vehicle_Model = db.define('Vehicle_Model' , {
     id : {
         type : DataTypes.INTEGER,
-        primaryKey: true,
+        primaryKey : true,
         autoIncrement: true
     },
-
-    adress : {
+    name: {
         type : DataTypes.STRING(255),
-        alloNull : false
-    },
-
-    buy : {
-        type : DataTypes.BOOLEAN,
         allowNull: false
     },
 
-    total : {
+    price: {
         type : DataTypes.INTEGER,
         allowNull: false
-    }
- 
+    },
     
-},{
+    img : {
+        type : DataTypes.STRING(255),
+        allowNull: false
+    }
+
+}, {
     timestamps: true,
     createdAt: 'created',
     updatedAt: 'updated'
   });
 
-
- Buy.hasMany(Vehicle_Buy , {
+Vehicle_Model.hasMany(Vehicle , {
     foreignKey : {
         allowNull: false,
-        name : 'buyID'
+        name : 'vehicle_modelID'
     },
     sourceKe:'id'
 });
 
 
-module.exports = Buy;
+
+
+
+
+
+
+
+
+
+
+
+
+
+module.exports = Vehicle_Model;

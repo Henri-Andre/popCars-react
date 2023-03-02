@@ -3,13 +3,13 @@ const db = require('../db/db');
 const Vehicle = require('./Vehicle');
 
 
-const Types= db .define('Types', {
+const Fuels= db .define('Fuels', {
     id : {
         type : DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    type: {
+    fuel: {
         type : DataTypes.STRING(255),
         alloNull : false
     }    
@@ -19,13 +19,13 @@ const Types= db .define('Types', {
     updatedAt: 'updated'
   });
 
-Types.hasMany(Vehicle , {
+Fuels.hasMany(Vehicle, {
     foreignKey:{
         allowNull : false,
-        name : 'typeID'
+        name : 'fuelID'
     },
     sourceKey:'id'
 });
 
 
-module.exports = Types;
+module.exports = Fuels;

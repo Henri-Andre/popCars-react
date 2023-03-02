@@ -10,7 +10,7 @@ const Films= db .define('Films', {
         autoIncrement: true
     },
 
-    name : {
+    film_name: {
         type : DataTypes.STRING(255),
         alloNull : false
     }

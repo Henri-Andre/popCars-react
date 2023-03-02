@@ -2,7 +2,7 @@ const {Sequelize, DataTypes} = require('sequelize');
 const db = require('../db/db');
 
 
-const Vehicle_Buy = db.define('Vehicle_Buy' , {
+const Vehicle_Panier = db.define('Vehicle_Panier' , {
    
     id : {
         type : DataTypes.INTEGER,
@@ -14,7 +14,7 @@ const Vehicle_Buy = db.define('Vehicle_Buy' , {
     createdAt: 'created',
     updatedAt: 'updated'
   });
-module.exports = Vehicle_Buy;
+module.exports = Vehicle_Panier;
 
 
 

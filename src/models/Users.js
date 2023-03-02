@@ -1,6 +1,7 @@
 const {Sequelize, DataTypes} = require('sequelize');
 const db = require('../db/db');
 const Comments = require('./Comments');
+const Panier = require('./Panier')
 
 
 
@@ -43,6 +44,14 @@ const Users= db .define('Users', {
 
 
 Users.hasMany(Comments , {
+    foreignKey : {
+        allowNull: false,
+        name : 'userID'
+    },
+    sourceKe:'id'
+});
+
+Users.hasMany(Panier , {
     foreignKey : {
         allowNull: false,
         name : 'userID'

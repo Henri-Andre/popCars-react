@@ -1,60 +1,42 @@
-
-const { Sequelize, DataTypes} = require('sequelize');
+const {Sequelize, DataTypes} = require('sequelize');
 const db = require('../db/db');
-const Comments = require('./Comments');
-const Vehicle_Buy = require('./Vehicule_Panier');
+const Vehicle_Panier = require('./Vehicule_Panier');
+const Comments = require('./Comments')
 
-const Vehicle = db.define('Vehicle' , {
+
+const Vehicle = db .define('Vehicle', {
     id : {
         type : DataTypes.INTEGER,
-        primaryKey : true,
+        primaryKey: true,
         autoIncrement: true
-    },
-    name: {
-        type : DataTypes.STRING(255),
-        allowNull: false
     },
     active : {
         type : DataTypes.BOOLEAN,
         allowNull : false
-    },
-    img : {
-        type : DataTypes.STRING(255),
-        allowNull: false
     }
-
+   
 }, {
     timestamps: true,
     createdAt: 'created',
     updatedAt: 'updated'
   });
 
+Vehicle.hasMany(Vehicle_Panier, {
+    foreignKey:{
+        allowNull : false,
+        name : 'vehicleID'
+    },
+    sourceKey:'id'
+});
+
+
 Vehicle.hasMany(Comments , {
-    foreignKey : {
-        allowNull: false,
+    foreignKey:{
+        allowNull : false,
         name : 'vehicleID'
     },
-    sourceKe:'id'
+    sourceKey:'id'
 });
-
-
-Vehicle.hasMany(Vehicle_Buy , {
-    foreignKey : {
-        allowNull: false,
-        name : 'vehicleID'
-    },
-    sourceKe:'id'
-});
-
-
-
-
-
-
-
-
-
-
 
 
 
