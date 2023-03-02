@@ -14,7 +14,11 @@ const Roles = db .define('Roles', {
         allowNull: false
     }
 
-});
+}, {
+    timestamps: true,
+    createdAt: 'created',
+    updatedAt: 'updated'
+  });
 
 Roles.hasMany(Users , {
     foreignKey: {

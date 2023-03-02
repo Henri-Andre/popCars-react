@@ -16,7 +16,11 @@ const Films= db .define('Films', {
     }
  
     
-});
+}, {
+    timestamps: true,
+    createdAt: 'created',
+    updatedAt: 'updated'
+  });
 
 
 Films.hasMany(Vehicle , {

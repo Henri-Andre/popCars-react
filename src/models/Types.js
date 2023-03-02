@@ -10,13 +10,22 @@ const Types= db .define('Types', {
         autoIncrement: true
     },
 
-    name : {
+    type : {
+        type : DataTypes.STRING(255),
+        alloNull : false
+    },
+
+    fuel: {
         type : DataTypes.STRING(255),
         alloNull : false
     }
  
     
-});
+}, {
+    timestamps: true,
+    createdAt: 'created',
+    updatedAt: 'updated'
+  });
 
 Types.hasMany(Vehicle , {
     foreignKey:{

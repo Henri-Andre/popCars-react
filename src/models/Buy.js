@@ -1,5 +1,6 @@
 const {Sequelize, DataTypes} = require('sequelize');
 const db = require('../db/db');
+const Vehicle_Buy = require('./Vehicule_Panier');
 
 
 const Buy = db .define('Buy', {
@@ -25,6 +26,20 @@ const Buy = db .define('Buy', {
     }
  
     
+},{
+    timestamps: true,
+    createdAt: 'created',
+    updatedAt: 'updated'
+  });
+
+
+ Buy.hasMany(Vehicle_Buy , {
+    foreignKey : {
+        allowNull: false,
+        name : 'buyID'
+    },
+    sourceKe:'id'
 });
+
 
 module.exports = Buy;

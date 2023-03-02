@@ -8,6 +8,7 @@ const Films = require('./src/models/Films')
 const Roles = require('./src/models/Roles');
 const Comments = require('./src/models/Comments');
 const Buy = require('./src/models/Buy')
+const Vehicle_Buy = require('./src/models/Vehicule_Panier')
 
 const app = express();
 const { json } = require ('express');

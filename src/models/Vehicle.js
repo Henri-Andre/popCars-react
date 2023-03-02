@@ -2,7 +2,7 @@
 const { Sequelize, DataTypes} = require('sequelize');
 const db = require('../db/db');
 const Comments = require('./Comments');
-
+const Vehicle_Buy = require('./Vehicule_Panier');
 
 const Vehicle = db.define('Vehicle' , {
     id : {
@@ -23,9 +23,22 @@ const Vehicle = db.define('Vehicle' , {
         allowNull: false
     }
 
-});
+}, {
+    timestamps: true,
+    createdAt: 'created',
+    updatedAt: 'updated'
+  });
 
 Vehicle.hasMany(Comments , {
+    foreignKey : {
+        allowNull: false,
+        name : 'vehicleID'
+    },
+    sourceKe:'id'
+});
+
+
+Vehicle.hasMany(Vehicle_Buy , {
     foreignKey : {
         allowNull: false,
         name : 'vehicleID'

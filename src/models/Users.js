@@ -35,7 +35,11 @@ const Users= db .define('Users', {
     }
 
     
-});
+}, {
+    timestamps: true,
+    createdAt: 'created',
+    updatedAt: 'updated'
+  });
 
 
 Users.hasMany(Comments , {

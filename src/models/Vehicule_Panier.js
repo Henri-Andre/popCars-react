@@ -2,20 +2,19 @@ const {Sequelize, DataTypes} = require('sequelize');
 const db = require('../db/db');
 
 
-const Comments = db.define('Comment', {
+const Vehicle_Buy = db.define('Vehicle_Buy' , {
+   
     id : {
         type : DataTypes.INTEGER,
-        primaryKey : true,
-        autoIncrement :true
+        primaryKey: true,
+        autoIncrement: true
     },
-    content : {
-        type : DataTypes.STRING(255)
-    }
-
 }, {
     timestamps: true,
     createdAt: 'created',
     updatedAt: 'updated'
   });
+module.exports = Vehicle_Buy;
 
-module.exports = Comments;
+
+
