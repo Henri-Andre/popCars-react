@@ -1,3 +1,5 @@
+
+
 module.exports = (app, Audiovisual) => {
     
     app.post('/audiovisuals', async (req, res) => {
@@ -6,8 +8,8 @@ module.exports = (app, Audiovisual) => {
           if (!name) {
             return res.status(400).json({ message: 'Name  are required' });
           }
-          const model = await Audiovisual.create({ name});
-          res.json(model);
+          const video = await Audiovisual.create({ name});
+          res.json(video);
         } catch (err) {
           console.error(err);
           res.status(500).json({ message: 'Server Error' });

@@ -40,9 +40,11 @@ require('./src/path/vehicule_model/updateModel')(app, Models);
 require('./src/path/audiovisual/addAudiovisual')(app, Audiovisual);
 require('./src/path/audiovisual/findAllAudiovisual')(app, Audiovisual);
 require('./src/path/audiovisual/updateAudiovisual')(app, Audiovisual);
+require('./src/path/audiovisual/dltAudiovisual')(app, Audiovisual);
 
 
-//UPDATE
+//Fuels
+
 
 
 
