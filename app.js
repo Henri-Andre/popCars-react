@@ -11,7 +11,7 @@ const Audiovisual = require('./src/models/Audiovisual');
 const Roles = require('./src/models/Roles');
 const Comments = require('./src/models/Comments');
 const Panier = require('./src/models/Panier');
-const Vehicle_Panier= require('./src/models/Vehicule_Panier')
+const Vehicle_Panier= require('./src/models/Vehicule_Panier');
 
 const app = express();
 const { json } = require ('express');
@@ -39,6 +39,7 @@ require('./src/path/vehicule_model/updateModel')(app, Models);
 //Audivisual
 require('./src/path/audiovisual/addAudiovisual')(app, Audiovisual);
 require('./src/path/audiovisual/findAllAudiovisual')(app, Audiovisual);
+require('./src/path/audiovisual/updateAudiovisual')(app, Audiovisual);
 
 
 //UPDATE
