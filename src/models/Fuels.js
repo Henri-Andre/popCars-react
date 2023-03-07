@@ -11,8 +11,8 @@ const Fuels= db .define('Fuels', {
     },
     fuel: {
         type : DataTypes.STRING(255),
-        alloNull : false
-    }    
+        allowNull: false
+   }
 }, {
     timestamps: true,
     createdAt: 'created',

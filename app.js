@@ -44,6 +44,10 @@ require('./src/path/audiovisual/dltAudiovisual')(app, Audiovisual);
 
 
 //Fuels
+require('./src/path/fuels/findAllFuels')(app, Fuels);
+require('./src/path/fuels/addFuel')(app, Fuels);
+require('./src/path/fuels/updateFuel')(app, Fuels);
+require('./src/path/fuels/dltFuel')(app, Fuels);
 
 
 
