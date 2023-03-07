@@ -16,23 +16,27 @@ const Users= db .define('Users', {
         type : DataTypes.STRING(255),
         alloNull : false
     },
+    
     first_name : {
         type : DataTypes.STRING(255),
         alloNull : false
     },
 
-    age : {
-        type : DataTypes.INTEGER,
-        allowNull: false
-    },
-
-    mail : {
-        type : DataTypes.STRING(255),
-        allowNull :false
-    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: {
+          message: 'email deja pris'
+        }
+      },
     password : {
         type: DataTypes.STRING(255),
         allowNull : false
+    },
+    
+    image : {
+        type : DataTypes.STRING(255),
+        allowNull: false
     }
 
     

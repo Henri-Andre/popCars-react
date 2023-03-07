@@ -36,7 +36,7 @@ const Panier = db .define('Panier', {
  Panier.hasMany(Vehicle_Panier , {
     foreignKey : {
         allowNull: false,
-        name : 'buyID'
+        name : 'panierID'
     },
     sourceKe:'id'
 });

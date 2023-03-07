@@ -10,6 +10,10 @@ const Vehicle = db .define('Vehicle', {
         primaryKey: true,
         autoIncrement: true
     },
+    price: {
+        type : DataTypes.INTEGER,
+        allowNull: false
+    },
     active : {
         type : DataTypes.BOOLEAN,
         allowNull : false

@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./src/db/db');
-const Vehicle_Model = require('./src/models/Vehicle_Model');
+const Vehicle_Model = require('./src/models/Models');
 const Users = require('./src/models/Users');
 const Vehicle= require('./src/models/Vehicle');
+const Models = require('./src/models/Models')
 const Fuels = require('./src/models/Fuels');
 const Types = require('./src/models/Types');
-const Films = require('./src/models/Films');
+const Audiovisual = require('./src/models/Audiovisual');
 const Roles = require('./src/models/Roles');
 const Comments = require('./src/models/Comments');
 const Panier = require('./src/models/Panier');
@@ -19,14 +20,25 @@ const port = 2234;
 
 app.use(bodyParser.json());
 
-//GET
+//Users
+require('./src/path/users/addUser')(app, Users);
+require('./src/path/users/findAllUsers')(app, Users, Roles);
+require('./src/path/users/userById')(app, Users, Roles);
+require('./src/path/users/dltUser')(app, Users);
+require('./src/path/users/updateUser')(app, Users);
+
+
+//Models
+require('./src/path/vehicule_model/addModel')(app, Models);
+require('./src/path/vehicule_model/findAllModels')(app, Models);
+require('./src/path/vehicule_model/dltModels')(app, Models);
+require('./src/path/vehicule_model/updateModel')(app, Models);
 
 
 
-//ADD
-
-
-//DELETE
+//Audivisual
+require('./src/path/audiovisual/addAudiovisual')(app, Audiovisual);
+require('./src/path/audiovisual/findAllAudiovisual')(app, Audiovisual);
 
 
 //UPDATE
