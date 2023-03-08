@@ -50,6 +50,11 @@ require('./src/path/fuels/updateFuel')(app, Fuels);
 require('./src/path/fuels/dltFuel')(app, Fuels);
 
 
+//Types
+require('./src/path/types/addType')(app, Types);
+require('./src/path/types/findAllTypes')(app, Types);
+require('./src/path/types/dltTypes')(app, Types);
+
 
 
 app.listen(port, () =>{
