@@ -12,7 +12,6 @@ const Roles = require('./src/models/Roles');
 const Comments = require('./src/models/Comments');
 const Panier = require('./src/models/Panier');
 const Vehicle_Panier= require('./src/models/Vehicule_Panier');
-
 const app = express();
 const { json } = require ('express');
 const port = 2234;
@@ -58,8 +57,14 @@ require('./src/path/types/dltTypes')(app, Types);
 
 //Vehicle
 require('./src/path/vehicules/addVehicule')(app, Vehicle);
-require('./src/path/vehicules/findAllVehicle')(app, Vehicle, Models);
+require('./src/path/vehicules/findAllVehicle')(app, Vehicle, Models, Audiovisual, Types, Fuels, Comments);
+require('./src/path/vehicules/findVehicleById')(app, Vehicle, Fuels, Models, Types, Audiovisual, Comments);
+require('./src/path/vehicules/dltVehicle')(app, Vehicle);
 
+
+//Comments
+require('./src/path/comments/addComment')(app, Comments);
+require('./src/path/comments/dltComment')(app, Comments);
 
 app.listen(port, () =>{
     console.log(`le serveur est en cours d'éxécution sur le pont ${port}. `);

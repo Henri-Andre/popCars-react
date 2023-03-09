@@ -1,9 +1,10 @@
 
 
-module.exports = (app, Vehicle, Models, Audiovisual, Types, Fuels, Comments) => {
-    app.get('/vehicles', async  (req, res) => {
+module.exports = (app, Vehicle, Fuels, Models, Types, Audiovisual, Comments) => {
+    app.get('/vehicles/:id', async (req, res) => {
+            const id = req.params.id
         try {
-            const vehicles = await Vehicle.findAll({
+            const vehicle = await Vehicle.findByPk( id ,{
                 include : [
                     {
                         model : Models ,
@@ -27,12 +28,13 @@ module.exports = (app, Vehicle, Models, Audiovisual, Types, Fuels, Comments) => 
                     },
 
                 ]
+                
             })
-             res.json(vehicles)
-            }catch (error) {
-                console.error(error);
-                res.status(500).json({message: 'la requete a échoué'})
-            }
-        }) 
-    } 
-    
+
+            res.json(vehicle)
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: 'Une erreur s\'est produite lors de la récupération des utilisateurs' });
+        }
+    });
+}

@@ -4,11 +4,11 @@ module.exports = (app, Audiovisual) => {
     
     app.post('/audiovisuals', async (req, res) => {
         try {
-          const { name } = req.body;
-          if (!name) {
-            return res.status(400).json({ message: 'Name  are required' });
+          const { name, vehicleID } = req.body;
+          if (!name || !vehicleID) {
+            return res.status(400).json({ message: 'info are required' });
           }
-          const video = await Audiovisual.create({ name});
+          const video = await Audiovisual.create({ name , vehicleID});
           res.json(video);
         } catch (err) {
           console.error(err);

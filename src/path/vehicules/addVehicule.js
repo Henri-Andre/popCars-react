@@ -1,20 +1,16 @@
 module.exports = (app, Vehicule) => {
     app.post('/vehicles', async (req, res) => {
-      const { price, modelID, fuelID, typeID, videoID } = req.body;
+      const { price} = req.body;
   
       // Validate request body
-      if (!price || !modelID || !fuelID || !typeID || !videoID) {
+      if (!price) {
         return res.status(400).json({ message: 'Bad request' });
         }
   
       try {
         const newVehicule = await Vehicule.create({
           price,
-          active : true,
-          modelID,
-          fuelID,
-          typeID,
-          videoID
+          active : true
         });
   
     

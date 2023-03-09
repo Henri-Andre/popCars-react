@@ -29,3 +29,19 @@ Roles.hasMany(Users , {
 })
 
 module.exports = Roles;
+
+
+// const defaultRoles = [
+//     { role: 'Users' },
+//     { role: 'Admin' },
+//     { role: 'Manager' }
+//   ];
+  
+//   // Insert the default roles into the Roles table
+//   Roles.bulkCreate(defaultRoles)
+//     .then(() => {
+//       console.log('Default roles created successfully');
+//     })
+//     .catch((error) => {
+//       console.error('Error creating default roles:', error);
+//     });

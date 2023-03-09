@@ -1,7 +1,7 @@
 
 const { Sequelize, DataTypes} = require('sequelize');
 const db = require('../db/db');
-const Vehicle = require('./Vehicle');
+
 
 
 const Models = db.define('Models' , {
@@ -20,18 +20,12 @@ const Models = db.define('Models' , {
     }
 
 }, {
-    timestamps: true,
-    createdAt: 'created',
-    updatedAt: 'updated'
+    timestamps: false,
+    createdAt: false,
+    updatedAt: false
   });
 
-Models.hasMany(Vehicle , {
-    foreignKey : {
-        allowNull: false,
-        name : 'modelID'
-    },
-    sourceKey:'id'
-});
+
 
 
 

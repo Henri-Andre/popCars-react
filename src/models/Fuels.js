@@ -1,6 +1,5 @@
 const {Sequelize, DataTypes} = require('sequelize');
 const db = require('../db/db');
-const Vehicle = require('./Vehicle');
 
 
 const Fuels= db .define('Fuels', {
@@ -14,18 +13,12 @@ const Fuels= db .define('Fuels', {
         allowNull: false
    }
 }, {
-    timestamps: true,
+    timestamps: false,
     createdAt: 'created',
     updatedAt: 'updated'
   });
 
-Fuels.hasMany(Vehicle, {
-    foreignKey:{
-        allowNull : false,
-        name : 'fuelID'
-    },
-    sourceKey:'id'
-});
+
 
 
 module.exports = Fuels;
