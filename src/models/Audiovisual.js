@@ -26,7 +26,7 @@ const Audiovisual = db .define('Audiovisual', {
   Audiovisual.hasMany(Vehicle , {
     foreignKey:{
         allowNull : false,
-        name : 'movies_serieID'
+        name : 'videoID'
     },
     sourceKey:'id'
 });

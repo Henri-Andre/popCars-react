@@ -26,6 +26,7 @@ require('./src/path/users/findAllUsers')(app, Users, Roles);
 require('./src/path/users/userById')(app, Users, Roles);
 require('./src/path/users/dltUser')(app, Users);
 require('./src/path/users/updateUser')(app, Users);
+require('./src/path/userByRole/findAll')(app, Users, Roles);
 
 
 //Models
@@ -39,14 +40,12 @@ require('./src/path/vehicule_model/updateModel')(app, Models);
 //Audivisual
 require('./src/path/audiovisual/addAudiovisual')(app, Audiovisual);
 require('./src/path/audiovisual/findAllAudiovisual')(app, Audiovisual);
-require('./src/path/audiovisual/updateAudiovisual')(app, Audiovisual);
 require('./src/path/audiovisual/dltAudiovisual')(app, Audiovisual);
 
 
 //Fuels
 require('./src/path/fuels/findAllFuels')(app, Fuels);
 require('./src/path/fuels/addFuel')(app, Fuels);
-require('./src/path/fuels/updateFuel')(app, Fuels);
 require('./src/path/fuels/dltFuel')(app, Fuels);
 
 
@@ -55,6 +54,11 @@ require('./src/path/types/addType')(app, Types);
 require('./src/path/types/findAllTypes')(app, Types);
 require('./src/path/types/dltTypes')(app, Types);
 
+
+
+//Vehicle
+require('./src/path/vehicules/addVehicule')(app, Vehicle);
+require('./src/path/vehicules/findAllVehicle')(app, Vehicle, Models);
 
 
 app.listen(port, () =>{

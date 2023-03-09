@@ -9,7 +9,7 @@ const Roles = db .define('Roles', {
         primaryKey : true,
         autoIncrement: true
     },
-    name : {
+    role : {
         type : DataTypes.STRING(255),
         allowNull: false
     }

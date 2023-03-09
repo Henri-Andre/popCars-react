@@ -30,7 +30,7 @@ Models.hasMany(Vehicle , {
         allowNull: false,
         name : 'modelID'
     },
-    sourceKe:'id'
+    sourceKey:'id'
 });
 
 
